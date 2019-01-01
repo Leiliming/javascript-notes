@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //事件总线的封装思想
+    //vue eventBus
+    class EventBus {
+      constructor(name, fn) {
+        this.eventMap = new Map()
+
+      }
+      on (name, fn) {
+        let eventList = this.eventMap.get(name)
+        if (!eventList) {
+          eventList = new Set()
+          this.eventMap.set(name, eventList)
+        }
+        eventList.add(fn)
+      }
+
+      emit (name, ...args) {
+        if (this.eventMap.get(name)) {
+          let tasks = this.eventMap.get(name)
+          tasks.forEach(fn => {
+            fn(...args)
+          })
+        }
+      }
+    }
+    //vue eventBus
+    class EventBus1 {
+      constructor(name, fn) {
+        this.eventList = {}
+
+      }
+      on (name, fn) {
+        if (!this.eventList[name]) {
+          this.eventList[name] = [fn]
+        } else {
+          this.eventList[name].push(fn)
+        }
+      }
+      off (name, fn) {
+        // if (this.eventList[name]) {
+        //   delete this.eventList[name]
+        // }
+        let tasks = this.eventList[name]
+        if (tasks) {
+          const index = tasks.findIndex(f => f === fn)
+          if (index >= 0) {
+            tasks.splice(index, 1)
+          }
+        }
+      }
+      emit (name, ...args) {
+        if (this.eventList[name]) {
+          let tasks = this.eventList[name]
+          tasks.forEach(fn => {
+            fn(...args)
+          })
+        }
+      }
+    }
+
+    let eventBus = new EventBus1()
+    function fn1 (...value) {
+      console.log('fn1', ...value)
+    }
+    function fn2 (...value) {
+      console.log('fn2', ...value)
+    }
+    eventBus.on('lei', fn1)
+    eventBus.on('lei', fn2)
+    eventBus.emit('lei', 'asd', 'asdas')
+    eventBus.off('lei', fn2)
+    eventBus.off('lei', fn1)
+    eventBus.emit('lei', 'asd', 'asdas')
+
+
+
+  </script>
+</body>
+
+</html>

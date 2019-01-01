@@ -1,14 +1,24 @@
+// 1. 引入express
 const express = require("express");
-const { get } = require("express/lib/response");
 
+// 2. 创建应用对象
 const app = express();
 
-app.get("/server", (request, response) => {
-  //设置响应头
-  response.setHeader("Access-Controll-Allow-Origin", "*");
-  //设置响应体
-  response.send("hello express");
+// 3. 创建路由规则
+// app.get("/server", (request, response) => {
+//   // 设置响应头 设置允许跨域
+//   response.setHeader("Access-Control-Allow-Origin", "*");
+//   // 设置响应体
+//   response.send("Hello Ajax");
+// });
+app.post("/op", (request, response) => {
+  // 设置响应头, 设置允许跨域
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  // 设置响应体
+  response.send("Hello Ajax POST");
 });
+
+// 4. 监听服务
 app.listen(8000, () => {
-  console.log("服务器已经启动,8000端口监听中。。。。");
+  console.log("服务已经启动, 8000 端口监听中...");
 });

@@ -91,13 +91,13 @@ html 文本/json 文本/js/css/图片...
 
 ## 2.5 post 请求体参数格式
 
-Content-Type: application/x-www-form-urlencoded;charset=utf-8
+`Content-Type: application/x-www-form-urlencoded;charset=utf-8`
 用于键值对参数，参数的键值用=连接, 参数之间用&连接
-例如: name=%E5%B0%8F%E6%98%8E&age=12
-Content-Type: application/json;charset=utf-8
+例如: `name=%E5%B0%8F%E6%98%8E&age=12`
+`Content-Type: application/json;charset=utf-8`
 用于 json 字符串参数
-例如: {"name": "%E5%B0%8F%E6%98%8E", "age": 12}
-Content-Type: multipart/form-data
+例如: `{"name": "%E5%B0%8F%E6%98%8E", "age": 12}`
+`Content-Type: multipart/form-data`
 用于文件上传请求
 
 ## 2.6 常见的响应状态码
@@ -135,12 +135,16 @@ ajax请求 是一种特别的 http请求
 (1) 一般请求: 浏览器一般会直接显示响应体数据, 也就是我们常说的刷新/跳转页面
 (2) ajax请求: 浏览器不会对界面进行任何更新操作, 只是调用监视的回调函数并传入响应相关数据
 
-3. 原生AJAX 的基本使用 XHR
-3.0 准备工作
-3.0.1 安装node.js
+## 3.原生AJAX 的基本使用 XHR
+
+## 3.0 准备工作
+
+### 3.0.1 安装node.js
+
 http://nodejs.cn/
 
-3.0.2 安装express（服务端框架）
+### 3.0.2 安装express（服务端框架）
+
 https://www.expressjs.com.cn/
 
 初始化环境
@@ -150,6 +154,8 @@ npm init --yes
 npm install express --save
 1
 编写js代码
+
+```javascript
 // 1. 引入express
 const express = require('express');
 
@@ -168,28 +174,10 @@ app.get('/', (request, response) => {
 app.listen(8000, () => {
   console.log("服务已经启动, 8000 端口监听中...");
  })
+```
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
 运行js程序
 node .\01express使用.js
-1
 
 
 打开网页显示页面
@@ -199,7 +187,8 @@ node .\01express使用.js
 
 
 
-3.0.3 安装nodemon自动重启工具
+### 3.0.3 安装nodemon自动重启工具
+
 文件内容有修改自动重新启动服务
 https://www.npmjs.com/package/nodemon
 
@@ -211,56 +200,66 @@ npm install -g nodemon
 
 ndoemon server.js
 1
-3.1 理解
+
+## 3.1 理解
+
 使用XMLHttpRequest (XHR)对象可以与服务器交互, 也就是发送ajax 请求
 前端可以获取到数据，而无需让整个的页面刷新。
 这使得Web 页面可以只更新页面的局部，而不影响用户的操作。
 https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest
 XMLHttpRequest，AJAX 的所有操作都是通过该对象进行的
 
-3.2 核心对象使用步骤
-3.2.1 创建XMLHttpRequest 对象
-var xhr = new XMLHttpRequest();
-1
-3.2.2 设置请求信息（请求方法和url）
+## 3.2 核心对象使用步骤
+
+### 3.2.1 创建XMLHttpRequest 对象
+
+`var xhr = new XMLHttpRequest();`
+
+### 3.2.2 设置请求信息（请求方法和url）
+
+```javascript
 // 请求方式
 xhr.open(method, url);
 //可以设置请求头，一般不设置
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-1
-2
-3
-4
-3.2.3 发送请求
-xhr.send(body) //get请求不传 body 参数，只有post请求使用
-1
-3.2.4 接收响应（事件绑定，处理服务端返回的结果）
+```
+
+
+
+### 3.2.3 发送请求
+
+`xhr.send(body) //get请求不传 body 参数，只有post请求使用`
+
+### 3.2.4 接收响应（事件绑定，处理服务端返回的结果）
+
+```javascript
 //xhr.responseXML 接收 xml格式 的响应数据
 //xhr.responseText 接收 文本格式 的响应数据
-xhr.onreadystatechange = function (){
-	// readyState 是 xhr对象中的属性, 表示状态 0 1 2 3 4
+xhr.onreadystatechange = function (){//这个方法会被触发4次
+	// readyState 是xhr对象中的属性, 表示状态 0 1 2 3 4
+    //0 未初始化，最开始这个属性就是0
+    //1 open方法已经调用完毕
+    //2 send方法已经调用完毕
+    //3	服务端返回了部分结果
+    //4	服务端返回了所有结果
 	if(xhr.readyState == 4 && xhr.status == 200){
 		var text = xhr.responseText;
 		console.log(text);
 	}
 }
-1
-2
-3
-4
-5
-6
-7
-8
-9
-3.3 使用案例
-3.3.1 GET 请求
+```
+
+## 3.3 使用案例
+
+### 3.3.1 GET 请求
+
 点击返回响应信息
 
 创建两个文件，浏览器端使用的html文件和服务器端使用的js文件
 
 服务器端 server.js
 
+```javascript
 // 1. 引入express
 const express = require('express');
 
@@ -279,32 +278,11 @@ app.get('/server', (request, response) => {
 app.listen(8000, () => {
   console.log("服务已经启动, 8000 端口监听中...");
  })
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-启动服务
-
-node server.js
-1
+```
 
 前端页面 html
 
+```javascript
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -348,75 +326,28 @@ node server.js
             console.log('状态字符串', xhr.statusText); // 状态字符串
             console.log('所有响应头', xhr.getAllResponseHeaders()); // 所有响应头
             console.log('响应体', xhr.response); // 响应体
-
-            //设置 result 的文本
-            result.innerHTML=xhr.response;
-          }else{
-          }
-        }
-      } 
+                     //设置 result 的文本
+        result.innerHTML=xhr.response;
+      }else{
+      }
     }
-  </script>
+  } 
+}
+</script>
 </body>
 </html>
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
+```
 
 
-# GET 请求设置请求参数
+
+ 
+
+
+
+
+
+GET 请求设置请求参数
+
 设置url参数
 
 xhr.open('GET', 'http://127.0.0.1:8000/server?a=100&b=200&c=300');
@@ -424,128 +355,42 @@ xhr.open('GET', 'http://127.0.0.1:8000/server?a=100&b=200&c=300');
 
 
 
-3.3.2 POST请求
+### 3.3.2 POST请求
+
 鼠标放到div中，发post请求，将响应体放在div中呈现
 
 server.js添加post
 
+```javascript
 app.post('/server', (request, response) => {
   // 设置响应头, 设置允许跨域
   response.setHeader('Access-Control-Allow-Origin', '*');
   // 设置响应体
   response.send("Hello Ajax POST");
 });
+```
 
-1
-2
-3
-4
-5
-6
-7
+
 post.html
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ajax POST 请求</title>
-  <style>
-    #result {
-      width: 200px;
-      height: 100px;
-      border: solid 1px #903;
-    }
-  </style>
-</head>
-<body>
-  <div id="result"></div>
-  <script>
-    // 获取元素对象
-    const result = document.getElementById('result');
-    // 绑定事件
-    result.addEventListener("mouseover", function(){
-      // 1. 创建对象
-      const xhr = new XMLHttpRequest();
-      // 2. 初始化 设置类型（请求方式）与url
-      xhr.open('POST', 'http://127.0.0.1:8000/server');
-      // 3. 发送   设置请求参数（请求体）
-      xhr.send('a=100&b=200&c=300');
-      // 4. 事件绑定
-      xhr.onreadystatechange = function(){
-        // 判断
-        if(xhr.readyState === 4){
-          if(xhr.status >=200 && xhr.status < 300){
-            // 处理服务端返回的结果
-            result.innerHTML = xhr.response;
-          }
-        }
-      }
-    });
-  </script>
-</body>
-</html>
+设置请求头信息
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-
-
-# 设置请求头信息
+```javascript
 // 设置请求体内容的类型
 xhr.setRequesHeader('Content-Type','application/x-www-from-urlencoded');
 // 自定义头信息
 xhr.setRequesHeader('name', 'ykyk');
-1
-2
-3
-4
+
 server.js中设置响应头允许自定义请求头 post改成all
 
 response.setHeader('Access-Control-Allow-Header','*');
-1
-3.4 json数据请求
+```
+
+
+
+## 3.4 json数据请求
+
+```javascript
 app.all('/json-server', (request, response) => {
   // 设置响应头, 设置允许跨域
   response.setHeader('Access-Control-Allow-Origin', '*');
@@ -560,116 +405,12 @@ app.all('/json-server', (request, response) => {
   // 设置响应体 
   response.send(str);
 });
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSON</title>
-  <style>
-    #result {
-      width: 200px;
-      height: 100px;
-      border: solid 1px #89b;
-    }
-  </style>
-</head>
-<body>
-  <div id="result"></div>
-  <script>
-    const result = document.getElementById('result');
-    // 绑定键盘按下事件
-    window.onkeydown = function(){
-      // 发送请求
-      const xhr = new XMLHttpRequest();
-      // *2*.(自动转换) 设置响应体数据的类型(自动转换)
-      xhr.responseType = 'json';
-      // 初始化
-      xhr.open('GET', 'http://127.0.0.1:8000/json-server');
-      // 发送
-      xhr.send();
-      // 事件绑定
-      xhr.onreadystatechange = function(){
-        if(xhr.readyState === 4){
-          if(xhr.status >= 200 && xhr.status < 300){
-            console.log(xhr.response);
-            // 1. 手动对数据转化 (字符串再转换成json)
-            // let data = JSON.parse(xhr.response); //转换成json
-            // result.innerHTML = data.name;
-            // *2*. (自动转换)自动转换(自动转换)
-            result.innerHTML = xhr.response.name; //已经自动变成json
-          }
-        }
-      }
-    }
-  </script>
-</body>
-</html>
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
+```
 
 
-3.5 请求超时与网络异常
+
+## 3.5 请求超时与网络异常
+
 // 超时设置 （2秒）
 xhr.timeout = 2000;
 // 超时回调
