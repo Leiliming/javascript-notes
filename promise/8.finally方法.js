@@ -121,17 +121,17 @@ class MyPromise {
   finally(callback) {
     return this.then(
       value => {
-        return MyPromise.resolve(callback()).then(value => {});
+        return MyPromise.resolve(callback()).then(value => {
+          console.log("value", value);
+        });
       },
       reason => {
         return MyPromise.resolve(callback()).then(value => {
+          console.log("reason", reason);
           throw reason;
         });
       }
     );
-  }
-  catch(failCallback) {
-    return this.then(undefined, failCallback);
   }
   static all(array) {
     let result = [];

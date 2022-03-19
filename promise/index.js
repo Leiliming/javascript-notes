@@ -6,14 +6,20 @@ function p1() {
     }, 2000);
   });
 }
-// function p2() {
-//     return new MyPromise(function (resolve, reject) {
-//         resolve('p2')
-//     })
-// }
+function p2() {
+  return new MyPromise(function (resolve, reject) {
+    reject("p2 reject");
+  });
+}
 
 // MyPromise
 //     .all(['a', 'b', p1(), p2(), 'c'])
 //     .then(result => console.log(result), reason => console.log(reason))
-MyPromise.resolve("10").then(value => console.log(value));
-MyPromise.resolve(p1()).then(value => console.log(value));
+p2()
+  .finally(() => {
+    return p1();
+  })
+  .then(value => console.log("111", value))
+  .catch(resaon => {
+    console.log("resaon", resaon);
+  });
