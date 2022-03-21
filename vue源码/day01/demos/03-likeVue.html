@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root">
+    <div>
+      <div>
+        <p>{{name}}={{message}}</p>
+      </div>
+    </div>
+
+    <p>{{message}}</p>
+  </div>
+  <script>
+    /*
+    1.拿到模板
+    2.拿到数据（data）
+    3.将数据与模板相结合，得到的是 HTML元素（DOM元素）
+    4.放到页面
+    */
+    //1
+    let tmpNode = document.querySelector('#root')
+    //2
+    let data = {
+      name: '一个新name',
+      message: '一个消息'
+    }
+    //3.将数据放到模板中
+    
+  </script>
+</body>
+
+</html>
