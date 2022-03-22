@@ -8,7 +8,10 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "browserify": "^17.0.0"
+  },
+  "dependencies": {
+    "uniq": "^1.0.1"
   }
 }
