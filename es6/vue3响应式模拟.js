@@ -1,11 +1,11 @@
 //模拟Vue3中的响应式
 //#region
 
-let person = {
+let data = {
   name: "张三",
   age: 18,
 };
-const p = new Proxy(person, {
+const vm = new Proxy(data, {
   get(target, propName) {
     console.log(`有人读取了p身上的${propName}属性`);
     return Reflect.get(target, propName);
@@ -19,12 +19,12 @@ const p = new Proxy(person, {
     return Reflect.deleteProperty(target,propName)
   },
 });
-// console.log(person);
-p.name = "李四";
-p.age = 100;
-p.sex = "男";
-console.log(person);
-
+// console.log(data);
+vm.name = "李四";
+vm.age = 100;
+vm.sex = "男";
+console.log(data);
+console.log(vm.age)
 //#endregion
 
 let obj = { a: 1, b: 2 };
