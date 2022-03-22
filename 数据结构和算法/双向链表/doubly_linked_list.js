@@ -176,10 +176,11 @@ class DoublyLinkedList extends LinkedList {
     this.tail = null;
   }
   append(element) {
-    if (!element instanceof DoublyNode) {
-      const newNode = new DoublyNode(element);
+    let newNode;
+    if (element instanceof DoublyNode) {
+      newNode = element;
     } else {
-      const newNode = element;
+      newNode = new DoublyNode(element);
     }
 
     if (this.head === null) {
@@ -199,7 +200,7 @@ class DoublyLinkedList extends LinkedList {
   insert(position, element) {
     // 1.越界判断
     if (position < 0 || position > this.length) return;
-    const newNode = new DoublyLinkedList(element);
+    const newNode = new DoublyNode(element);
     //
     if (position === 0) {
       if (this.head === null) {
@@ -212,12 +213,31 @@ class DoublyLinkedList extends LinkedList {
       }
     } else if (position === this.length) {
       this.append(newNode);
+    } else {
+      let index = 0;
+      let current = this.head;
+      let previous = null;
+      while (index < position) {
+        index++;
+        //准备下一次循环的数据
+        previous = current;
+        current = current.next;
+      }
+
+      newNode.next = current;
+      current.prev = newNode;
+      previous.next = newNode;
+      newNode.prev = previous;
     }
+    this.length++;
+    return true;
   }
+  //get indexof都不用重写
 }
 const l = new DoublyLinkedList();
 l.append("aaa");
 l.append("bbb");
 l.append("ccc");
 l.append("ddd");
-console.log(l);
+l.insert(4, "ggg");
+console.log(l.indexOf("aaa"))
