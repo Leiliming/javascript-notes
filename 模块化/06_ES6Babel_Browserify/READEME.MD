@@ -1,0 +1,4 @@
+- 安装babel
+- npm install --save-dev @babel/core @babel/cli @babel/preset-env
+- ./node_modules/.bin/babel js/src --out-dir js/lib
+- browserify js/lib/main.js -o js/dist/bundle.js
