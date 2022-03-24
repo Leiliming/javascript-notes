@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var obj = {
+				a: '11',
+				b: {
+					c: 'asd',
+					d: {
+						e: 'ggg',
+						f: function() {}
+					}
+				}
+			}
+
+			/* function deepClone(orgin, cloneObj) {
+				let newObj = cloneObj || {}
+				for (let item in orgin) {
+					if (typeof orgin[item] === 'object') {
+						newObj[item] = deepClone(orgin[item])
+					} else {
+						newObj[item] = orgin[item]
+					}
+				}
+				return newObj
+			} */
+
+			function deepClone(obj = {}) {
+				if (typeof obj !== 'object' || obj == null) { // == null  判断 是否为null或undefined
+					return obj
+				}
+				let result
+				if (obj instanceof Array) { //如果obj 是 Array 那么 返回true
+					result = []
+				} else {
+					result = {}
+				}
+				for (let key in obj) { //会遍历包括原型上面的属性
+					if (obj.hasOwnProperty(key)) { //如果是原型上面的方法 返回 false ,实例属性返回 true
+						//保证key不是原型的属性
+						result[key] = deepClone(obj[key])
+					}
+				}
+				return result
+			}
+			var nObj = deepClone([1, 2, 3, 4])
+
+			console.log(nObj)
+		</script>
+	</body>
+</html>

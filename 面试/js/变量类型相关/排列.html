@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> 网页标题 </title>
+		<script src="https://exam.zhimawork.com/user/js/jquery-1.11.1.min.js"></script>
+	</head>
+
+	<body>
+		<h3>请填写以下表单：</h3>
+		<form action="#do.php" method="get">
+			<p>账号：<input name="account" type="text" /></p>
+			<p>密码：<input name="password" type="password" /><span id="pwdinfo"></span></p>
+			<p><input type="submit" value="提交" id="btn_submit" /></p>
+		</form>
+		<script>
+			$(function() {
+				$('#btn_submit').click(function() {
+					//判断账号不能为空，使用弹框警告
+					if (!$("[ name ='account']").value) {
+						alert('账号不能为空')
+					}
+
+					//判断密码不能为空，在密码输入后面显示提示
+
+					if (!$("[ name ='password']").value) {
+						console.log($("[ name ='password']").parent())
+
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function create() {
+				let a = 100
+				return function() {
+					console.log(a)
+				}
+			}
+			const fn = create()
+			const a = 200
+			fn()
+		</script>
+	</body>
+</html>

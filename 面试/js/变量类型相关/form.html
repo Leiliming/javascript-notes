@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="微普科技 http://www.wiipu.com" />
+		<title>网页常见背景透明，文字不透明</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.zmkt {
+				position: relative;
+				background-color: #f00;
+				height: 300px;
+				width: 500px;
+			}
+
+			.sub {
+
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				height: 50px;
+				background-color: #000;
+				color: fff;
+				transform: translate(-50%, -50%);
+				color:#fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="zmkt">
+			外层div背景透明，背景颜色为#f00，透明度为20%，
+			<div class="sub">内层文字不透明,背景颜色为#000,字体颜色为#fff</div>
+		</div>
+	</body>
+</html>

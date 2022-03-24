@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//字符串拼接
+			const a = 100 + 10 // 110
+			const b = 100 + '10' // '10010'
+			const c = true + '10' // 'true10'
+			console.log(parseInt('10'))
+			// 下面这5个 == 情况很多，但三等一律为 false
+			100 == '100' //true
+			0 == '' //true
+			0 == false //true
+			false == '' //true
+			null == undefined //true
+			
+			//所以除了 == null 之外，其他一律用 ===， 例如：
+			const obj = {
+				x: 100
+			}
+			
+			
+			if (obj.a == null) {}//相当于：if(obj.a === null || obj.a === undefined) { }
+			
+			// 经过两步取反
+			//truly 变量  ： !!a === true的变量  
+			//falsely 变量  ： !!a === false的变量
+		</script>
+	</body>
+</html>

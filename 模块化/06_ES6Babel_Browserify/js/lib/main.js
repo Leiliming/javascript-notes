@@ -1,5 +1,7 @@
 "use strict";
 
+var _jquery = _interopRequireDefault(require("jquery"));
+
 var _module = require("./module1");
 
 var _module2 = require("./module2");
@@ -14,4 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //统一暴露 相当于在当前页面生命两个变量
 //分别暴露 统一暴露 ==> 常规暴露
 console.log(_module.foo, _module.bar, _module2.fun, _module2.fun2);
-(0, _module3.default)();
+
+_module3.default.foo();
+
+(0, _jquery.default)("body").css("background", "green");

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用js完成隔行换色</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				width: 600px;
+				list-style: none;
+				margin: 0 auto;
+			}
+
+			ul li {
+				width: 100%;
+				height: 30px;
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--使用javascript实现隔行更换背景颜色，奇数行为#aaa;偶数行为#000；-->
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<script>
+			var mLi = document.getElementsByTagName('li')
+			var Ali = Array.prototype.slice.call(mLi)
+			Ali.forEach(function(ele, index) {
+				if (index % 2 == 0) {
+					ele.style.backgroundColor = "#000"
+				} else {
+					ele.style.backgroundColor = "#aaa"
+				}
+			})
+		</script>
+	</body>
+</html>

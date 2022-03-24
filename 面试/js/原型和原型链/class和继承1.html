@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			class Student {
+				constructor(name, number) {
+					this.name = name
+					this.number = number
+				}
+				sayHi() {
+					console.log(`姓名：${this.name}，学号：${this.number}`)
+				}
+			}
+			const xialuo = new Student('夏洛', 100)
+			console.log(xialuo)
+			xialuo.sayHi()
+		</script>
+	</body>
+</html>

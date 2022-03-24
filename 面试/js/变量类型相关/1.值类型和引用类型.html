@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+
+	<body>
+		<script>
+			//typeof能判断哪些类型
+			/*
+			1.typeof 运算符
+			识别所有值类型
+			识别函数
+			判断是否是引用类型
+			*/
+
+			//值类型
+			let a;
+			(typeof a) //'undefined'
+			const str = 'abc'
+			console.log(typeof str) //string
+			const n = 100
+			console.log(typeof n) //'unmber'
+			const b = true
+			console.log(typeof b) //'boolean'
+			const s = Symbol('s')
+			console.log(typeof s) //'symbol'
+			// //引用类型
+			const obj = {
+				x: 100
+			}
+			console.log(typeof obj) //'object'
+			const arr = [1, 2, 'v']
+			console.log(typeof arr) //'object'
+			const nu = null //特殊引用类型，指针指向为空地址									
+			console.log(typeof nu) //'object'
+			// //特殊引用类型，但不用于存储数据，所以没有“拷贝、复制函数”这一说	
+			function fn() {}
+			console.log(typeof fn) //'function'
+			console.log(typeof console.log) //'function'
+		</script>
+	</body>
+
+</html>
