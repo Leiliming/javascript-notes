@@ -232,12 +232,51 @@ class DoublyLinkedList extends LinkedList {
     this.length++;
     return true;
   }
-  //get indexof都不用重写
+  //removeAt(position)
+  removeAt(position) {
+    //1、越界判断
+    if (position < 0 || position > this.length - 1) return;
+    //2、根据不同情况删除元素
+    let current = this.head;
+    if (position === 0) {
+      //第一个
+      if (this.length === 1) {
+        //只有一个元素时候
+        this.head = null;
+        this.tail = null;
+      } else {
+        this.head = this.head.next;
+        this.head.prev = null;
+      }
+    } else if (position === this.length - 1) {
+      //最后一个
+      current = this.tail;
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    } else {
+      let index = 0;
+      let pervious = null;
+      while (index++ < position) {
+        pervious = current;
+        current = current.next;
+      }
+      pervious.next = current.next;
+      current.next.prev = pervious;
+    }
+    this.length--;
+    return current.element;
+  }
+  //update继承父级
+  //indexOf继承父级
+  //get继承父级
+  //isEmpty继承父级
+  //size继承父级
 }
 const l = new DoublyLinkedList();
 l.append("aaa");
 l.append("bbb");
 l.append("ccc");
 l.append("ddd");
-l.insert(4, "ggg");
-console.log(l.indexOf("aaa"))
+console.log(l.remove("bbb"));
+console.log(l.isEmpty());
+console.log(l.size());
