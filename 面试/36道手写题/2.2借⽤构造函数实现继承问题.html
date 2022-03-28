@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Animal (name) {
+      this.name = name
+      this.getName = function () {
+        return this.name
+      }
+    }
+    function Dog (name) {
+      Animal.call(this, name)
+    }
+    //由于⽅法必须定义在构造函数中，所以会导致每次创建⼦类实例都会创建⼀遍⽅法
+    Dog.prototype = new Animal()
+    var dog1 = new Dog('li')
+    var dog2 = new Dog('lei')
+    console.log(dog1)
+    console.log(dog2)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //es5
+    function unique (arr) {
+      var res = arr.filter(function (item, index, array) {
+        //如果返回false就说明，item在前面出现了，说明有重复的
+        //而true说明，前面没有，就添加到filter返回的新数组中
+        return array.indexOf(item) === index
+        //indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+      })
+      return res
+    }
+    var arr = [1, 2, 2, 24, 23, 23, 1]
+
+    //es6
+    var Es6Unique = arr => [...new Set(arr)]
+    console.log(Es6Unique(arr))
+  </script>
+</body>
+
+</html>

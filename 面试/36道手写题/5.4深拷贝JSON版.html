@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var obj1 = {
+      name: '张三',
+      age: 18,
+      body: {
+        height: '170',
+        sex: {
+          gender1: 'man',
+          gender2: 'woman',
+          arr: [1, 2, 3, { a: 1 }, 4]
+        }
+      },
+      eat () {
+        console.log(12)
+      }
+    }
+    function deepClone (obj) {
+      var _obj = JSON.stringify(obj),
+        objClone = JSON.parse(_obj)
+      return objClone
+    }
+    let obj2 = deepClone(obj1)
+
+  </script>
+</body>
+
+</html>

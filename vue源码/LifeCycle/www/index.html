@@ -9,9 +9,24 @@
 </head>
 
 <body>
+  <div id="app">
+    <div class="box" v-if="" v-model="">
+      <h3>你好{{a}}</h3>
+      <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+      </ul>
+    </div>
+  </div>
   <script src="/xuni/bundle.js"></script>
   <script>
-    
+    new Vue({
+      el: '#app',
+      data: {
+        a: 10
+      }
+    })
   </script>
 </body>
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    function typeOf (obj) {
+      //把[object Array]，用split从空格字符分割成一个数组，在取下标为1的一项
+      let result = Object.prototype.toString.call(obj).split(' ')[1]
+      //substring截取从0到result.length - 1的字符串，同时把所有字母变为小写
+      result = result.substring(0, result.length - 1).toLowerCase()
+      return result
+    }
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

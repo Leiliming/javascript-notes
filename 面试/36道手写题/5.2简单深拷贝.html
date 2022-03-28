@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var obj1 = {
+      name: '张三',
+      age: 18,
+      body: {
+        height: '170',
+        sex: {
+          gender1: 'man',
+          gender2: 'woman',
+          arr: [1, 2, 3, { a: 1 }, 4]
+        }
+      }
+    }
+    function deepClone (obj) {
+      if (typeof obj !== 'object') return;
+      let newObj = obj instanceof Array ? [] : {};
+      for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          newObj[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key]
+        }
+      }
+      return newObj;
+    }
+    let obj2 = deepClone(obj1)
+    obj2.body.sex.arr[3].a = 2
+    console.log(obj1)
+    console.log(obj2)
+  </script>
+</body>
+
+</html>

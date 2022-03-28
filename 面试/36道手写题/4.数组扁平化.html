@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr1 = [1, 2, ['sd', [[434, 323, 123, [2]], 3, 5, 6]], 4]
+    function flatten1 (arr) {
+      var result = []
+      for (let i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+          result = result.concat(flatten(arr[i]))
+        } else {
+          result.push(arr[i])
+        }
+      }
+      return result
+    }
+    function flatten2 (arr) {
+      var result = []
+      for (var value of arr) {
+        if (Array.isArray(value)) {
+          result = result.concat(flatten1(value))
+        } else {
+          result.push(value)
+        }
+      }
+      return result
+
+    }
+    function flatten3 (arr) {
+      while (arr.some((item) => Array.isArray(item))) {
+        console.log(arr.some((item) => Array.isArray(item)))
+        arr = [].concat(...arr);
+      }
+      return arr;
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,3 +1,2 @@
-class Vue {
-  constructor() {}
-}
+import Vue from "./Vue";
+window.Vue = Vue;
