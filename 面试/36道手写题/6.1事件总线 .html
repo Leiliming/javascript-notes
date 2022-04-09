@@ -39,7 +39,6 @@
     class EventBus1 {
       constructor(name, fn) {
         this.eventList = {}
-
       }
       on (name, fn) {
         if (!this.eventList[name]) {
@@ -49,9 +48,6 @@
         }
       }
       off (name, fn) {
-        // if (this.eventList[name]) {
-        //   delete this.eventList[name]
-        // }
         let tasks = this.eventList[name]
         if (tasks) {
           const index = tasks.findIndex(f => f === fn)

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    /*
+    instanceof:
+    作用：检测某个对象（引用类型）是否属于某个类型。
+    场景：检测（引用）对象的类型，基本类型的 检测依旧用 typeof 检测
+    语法：Object instanceof constructor
+    参数：object（要检测的对象）constructor（某个构造函数例如：Array，Object）
+    本质：instanceof 运算符用来检测 constructor.prototype
+        是否存在于参数object的原型链上。
+        如果存在，返回true；否则返回false
+    */
+    console.log([] instanceof Array) //true
+    console.log([] instanceof Object) //true  Object是所有原型链的终端
+    console.log({}
+      instanceof Object) //true
+    console.log({}
+      instanceof Array) //false
+
+    //自定义类型 —— Person构造函数
+    function Person (name, height) {
+      this.name = name
+      this.height = height
+    }
+    const obj = new Person('宋轶', 166)
+    console.log(obj)
+    console.log(obj instanceof Person) //true
+    console.log(obj instanceof Object) //true
+    console.log(obj instanceof Array) //false
+    console.log(Number instanceof Object) //true
+    console.log('--------------------------------------------')
+    //普通方法
+
+    function instanceOf (obj, ctor) {
+      while (obj !== null) {
+        //Object.getPrototypeOf(obj) === obj.__proto___
+        if (Object.getPrototypeOf(obj) === ctor.prototype) {
+          return true
+        }
+        obj = Object.getPrototypeOf(obj)
+      }
+      return false
+    }
+    console.log(instanceOf(1, Array))
+			// console.log(typeof new Number(1))
+			// console.log(typeof 1)
+  </script>
+</body>
+
+</html>
