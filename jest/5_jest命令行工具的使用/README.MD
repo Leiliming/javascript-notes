@@ -1,0 +1,14 @@
+- 1 只测试上一次错误的测试用例，如果都通过了，然后你再改成错的也并不会再测试了
+  - Press f to run only failed tests
+- 2 只测试修改过的文件,必须要用 git 配合着使用，这样 jest 才能检测到代码更新的差异
+  - Press o to only run tests related to changed files.
+- 3 只测试，你输入的测试名字的测试用例
+  - Press t to filter by a test name regex pattern.
+- 4 退出对代码的监控,作用类似于 ctrl c
+  - Press q to quit watch mode.
+- 5 如果git仓库发生改变就测试
+  - Press Enter to trigger a test run.
+- 6 测试所有
+  - Press a to run all tests.
+- 7 只测试，你输入的文件名字里面测试用例
+  - Press p to filter by a filename regex pattern.

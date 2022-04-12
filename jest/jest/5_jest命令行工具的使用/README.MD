@@ -1,8 +1,0 @@
-- 1 只测试上一次错误的测试用例，如果都通过了，然后你再改成错的也并不会再测试了
-  - Press f to run only failed tests
-- Press a to run all tests.
-- Press f to run only failed tests.
-- Press p to filter by a filename regex pattern.
-- Press t to filter by a test name regex pattern.
-- Press q to quit watch mode.
-- Press Enter to trigger a test run.
