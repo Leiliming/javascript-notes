@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>开灯</button>
+  <button>关灯</button>
+  <script src="jquery.js"></script>
+  <!-- <script src="./myJquery.js"></script> -->
+  <script>
+    //window.onload 入口函数不能写多个,但是jquery入口函数是可以写多个
+    //jquery入口函数 快于 window.onload 
+    //jquery入口函数 等待dom加载完成
+    //window.onload 等待dom树/外部css/js连接..图片等等
+    $(function () {
+      //需求给按钮们添加事件：设置body的背景色
+      //1.获取到按钮们
+      var btns = document.getElementsByTagName("button")
+      //console.log(btns)
+      btns[1].onclick = function () {
+        $('body').css('backgroundColor', 'black')
+      }
+      $(btns[0]).click(function () {
+        $('body').get(0).style.backgroundColor = 'white'
+      })
+    })
+    //b.jQuery文件是一个自执行函数，
+  </script>
+</body>
+
+</html>

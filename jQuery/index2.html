@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <ul>
+      <li>1</li>
+      <li class="demo">2</li>
+      <li>3</li>
+      <li>4</li>
+      <li class="demo">5</li>
+    </ul>
+  </div>
+  <ul>
+    <li>1</li>
+    <li class="demo">2</li>
+    <li>3</li>
+    <li>4</li>
+    <li class="demo">5</li>
+  </ul>
+  <script src="./jquery.js"></script>
+  <!-- <script src="./myJquery.js"></script> -->
+  <script>
+    //find
+    // $('.wrapper')
+    //   .css({ position: 'relative' })
+    // $('.wrapper ul')
+    //   .css({ listStyle: 'none' })
+    // $('.wrapper ul li')
+    //   .css({ color: 'red' })
+
+    $('.wrapper')
+      .css({ position: 'relative' })
+      .find('ul')
+      .css({ listStyle: 'none' })
+      .find('li')
+      .css({ color: "red" })
+
+    console.log($('.wrapper'))
+    console.log($('li'))
+    console.log($('.wrapper').find('ul'))
+    console.log($('.wrapper').find('ul').find('li'))
+    // console.log($('.wrapper').find('ul').find('li').prevObject)
+  </script>
+</body>
+
+</html>

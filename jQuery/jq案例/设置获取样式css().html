@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #div1 {
+      height: 200px;
+      background-color: pink;
+      border: 2px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" value="获取" id="getBtn" />
+  <input type="button" value="设置" id="setBtn" />
+  <div id="div1" style="width: 200px;"></div>
+  <div id="div2" style="width: 300px;"></div>
+  <div id="div3" style="width: 400px;"></div>
+  <script src="./jquery.js"></script>
+  <script>
+    $(function () {
+      $('#getBtn').click(function () {
+        // console.log($('#div1').css('width'))
+        // console.log($('#div1').css('background-color'))
+        // console.log($('#div1').css('height'))
+        // console.log($('#div1').css('border'))
+
+        //1.2 
+        //获取包含了多个dom元素的jQuery对象的样式，只会返回第一个元素对应样式值
+        console.log($('div').css('width'))
+      })
+      //设置样式:css(样式名 )
+      $('#setBtn').click(function () {
+        // $('#div1').css('width', 300)
+        // $('#div1').css('height', '300px')
+        // $('#div1').css('border', '10px solid black')
+        // $('#div1').css('background-color', '#fff')
+        // $('#div1').css({
+        //   width: 300,
+        //   height: '300px',
+        //   'background-color': 'green',
+        //   border: '10px solid pink'
+        // })
+        //2.2 给标签为div的元素们 设置样式
+        $('div').css({
+          width: 300,
+          height: '300px',
+          'background-color': 'green',
+          border: '10px solid pink',
+          marginTop: 10
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>

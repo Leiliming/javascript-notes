@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {}
+  </style>
+</head>
+
+<body>
+  <p>
+    <!-- 普通文本输入框 -->
+    <input type="text" placeholder="请输入账号">
+  </p>
+  <p>
+    <!-- 密码框 -->
+    <input type="password" placeholder="请输入密码">
+  </p>
+  <p>
+    <!-- 日期选择 -->
+    <input type="date">
+  </p>
+  <p>
+    <!-- 选择条 -->
+    <input class="s" type="range">
+  </p>
+  <p>
+    <!-- 数字输入框 -->
+    <input type="number" min="0" max="3">
+  </p>
+  <p>
+    <!-- 多选框 -->
+    爱好：<input name="loves" type="checkbox">
+    音乐：<input name="loves" type="checkbox">
+    电影：<input name="loves" type="checkbox">
+    阅读：<input name="loves" type="checkbox">
+  </p>
+  <p>
+    <!-- 单选框 -->
+    性别：
+    <input id="radMale" name="Gender" type="radio">
+    <label for="radMale">男</label>
+    <input id="radFemale" name="Gender" type="radio">
+    <label for="radFemale">女</label>
+    <br>
+    性别：
+
+    <label><input name="Gender" type="radio">男</label>
+
+    <label><input name="Gender" type="radio">女</label>
+  </p>
+  <p>
+    <!-- 文件选择 -->
+    <input type="file">
+  </p>
+  <p>
+    <!-- 重置按钮 -->
+    <input type="reset">
+    <!-- 普通按钮 -->
+    <input type="button" value="普通按钮">
+    <!-- 提交按钮 -->
+    <input type="submit">
+  </p>
+  <p>
+    请选择城市:
+    <select>
+      <option value="" selected>上海</option>
+      <option value="">成都</option>
+      <option value="">北京</option>
+    </select>
+  </p>
+  <p>
+    请选择你最喜欢的主播:
+    <select>
+      <optgroup label="才艺表演">
+        <option>冯提莫</option>
+      </optgroup>
+      <optgroup label="才艺表演">
+        <option>WETed</option>
+        <option>infi</option>
+        <option>th000</option>
+      </optgroup>
+    </select>
+  </p>
+  <p>
+    请选择你最喜欢的主播:
+    <select multiple>
+      <optgroup label="才艺表演">
+        <option>冯提莫</option>
+      </optgroup>
+      <optgroup label="才艺表演">
+        <option>WETed</option>
+        <option>infi</option>
+        <option>th000</option>
+      </optgroup>
+    </select>
+  </p>
+  <p>
+    请填写简介:
+    <textarea style="height: 200px;width: 200px;" placeholder="请输入简介"></textarea>
+  </p>
+  <p>
+    <!-- 按钮元素 -->
+    <button type="reset">重置</button>
+    <button type="submit">提交按钮</button>
+    <button type="button">普通按钮</button>
+  </p>
+
+  <p></p>
+  <script src="../jquery.js"></script>
+  <script>
+    console.log($('#radFemale').get(0))   
+  </script>
+</body>
+
+</html>
