@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p></p>
+  <div id="father">
+    <div>
+      <span>span1</span>
+      <span>span2</span>
+      <span>span3</span>
+    </div>
+    <div>
+      <b>1</b>
+      <div>div1</div>
+      <div>div2</div>
+      <div>div3</div>
+    </div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <span>sss1</span>
+  </div>
+
+  <ul>
+    <li>我是第0个li标签</li>
+    <li>我是第1个li标签</li>
+    <li>我是第2个li标签</li>
+    <li>我是第3个li标签</li>
+    <li>我是第4个li标签</li>
+    <li>我是第5个li标签</li>
+    <li>我是第6个li标签</li>
+    <li>我是第7个li标签</li>
+    <li>我是第8个li标签</li>
+    <li>我是第9个li标签</li>
+    <li>我是第10个li标签</li>
+  </ul>
+  <script src="./jquery.js"></script>
+  <script>
+    $(function () {
+      //设置奇数行
+      $('li:odd').css('backgroundColor', 'blue')
+      //设置偶数行li标签背景色为粉色
+      $('li:even').css('background', 'pink')
+
+      //首尾两行li显示红色
+      $('li:eq(0)').css('backgroundColor', 'red')
+      $('li:eq(10)').css('backgroundColor', 'red')
+      // console.log($('#father > div'))
+
+      // console.log($('#father > div'))
+
+      // console.log($('#father > div,#father > p'))
+      // console.log($('#father div'))
+      var str = "hello world";
+
+    })
+  </script>
+</body>
+
+</html>
