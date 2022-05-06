@@ -1,5 +1,17 @@
 {
   "dependencies": {
-    "jquery": "^3.6.0"
-  }
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21"
+  },
+  "name": "npm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": { 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
